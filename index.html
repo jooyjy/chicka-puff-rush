@@ -97,6 +97,10 @@
     animation:rise .6s .6s cubic-bezier(.2,1.4,.4,1) both}
   .powered img{height:44px;width:auto;display:block}
   html{background:#ef3734}
+  /* lock the page to the screen: no sideways or empty vertical scroll */
+  html,body{width:100%;height:100%;overflow:hidden;overscroll-behavior:none;position:fixed;inset:0;touch-action:manipulation}
+  body{height:100dvh;box-sizing:border-box}
+  .bg{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
   html,body,*{forced-color-adjust:none}
   /* Same look in dark mode: declaring dark support stops Chrome/Samsung auto-darkening */
   @media (prefers-color-scheme: dark){
@@ -107,9 +111,11 @@
 </style>
 </head>
 <body>
-  <div class="burst"></div>
-  <div class="spots"></div>
-  <div class="puffs" id="puffs"></div>
+  <div class="bg">
+    <div class="burst"></div>
+    <div class="spots"></div>
+    <div class="puffs" id="puffs"></div>
+  </div>
 
   <main class="wrap">
     <div class="hero">
